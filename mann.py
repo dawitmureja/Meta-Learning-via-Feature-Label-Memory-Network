@@ -4,7 +4,6 @@ import tensorflow as tf
 from omniglot_generator import generate_omniglot
 import ipdb
 
-controller_size = 200
 def cosine_similarity(x,y):
     x_dot_y = tf.matmul(x,tf.reshape(y,[-1,1]))
     norm_x_y = tf.sqrt(tf.reduce_sum(tf.multiply(y,y)) * tf.reduce_sum(tf.multiply(x,x),1))
