@@ -60,7 +60,7 @@ def MANN(input_data, target_labels, num_class, memory_shape, controller_size, in
     offset_target_labels = tf.concat([one_hot_labels[:,1:], tf.reshape(tf.zeros(one_hot_labels.get_shape().as_list()[0]),[-1,1])],axis = 1)
     input_data_mem = tf.concat([input_data, offset_target_labels], axis = 1)
     scanned_var = tf.scan(at_each_step, elems = input_data_mem, initializer = [mem_init,r_init,wr_init,wu_init])
-    predicted_labels = tf.matmul(tf.reshape(scanned_var[1],[episode_length,-1]),W_out) + b_out
+    predicted_labels = tf.nn.softmax(tf.matmul(tf.reshape(scanned_var[1],[episode_length,-1]),W_out) + b_out)
     parameters = [W_key,b_key,W_sigma,b_sigma,W_fc1,b_fc1,W_fc2,b_fc2,W_fc3,b_fc3,W_out,b_out]
     return predicted_labels,parameters
 
