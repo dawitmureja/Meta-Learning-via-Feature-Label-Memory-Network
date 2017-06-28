@@ -1,7 +1,5 @@
 import numpy as np
 import tensorflow as tf
-
-from omniglot_generator import generate_omniglot
 import ipdb
 
 bias = 1e-6
