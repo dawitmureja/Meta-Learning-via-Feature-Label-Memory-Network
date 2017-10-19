@@ -1,1 +1,1 @@
-One-shot learning with Structured Memory Neural network. A similar version of "One-shot Learning with Memory-Augmented Neural Networks" 
+This is a python implementation of "Meta Learning via Feature-Label Memory Network"
